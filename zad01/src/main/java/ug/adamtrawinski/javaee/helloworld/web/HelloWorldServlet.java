@@ -1,4 +1,4 @@
-package com.example.zad01.web;
+package ug.adamtrawinski.javaee.helloworld.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
