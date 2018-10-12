@@ -4,7 +4,7 @@
 	<groupId>com.example</groupId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Java EE 6 - HelloWorld</name>
+	<name>Java EE 6 - Aplikacja</name>
 	<url>http://maven.apache.org</url>
 	<repositories>
 		<!-- Several key Java EE APIs and RIs are missing from the Maven Central 
@@ -48,7 +48,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>zad01</finalName>
+		<finalName>zad02</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -83,6 +83,6 @@
 		</plugins>
 	</build>
 
-	<artifactId>zad01</artifactId>
+	<artifactId>zad02</artifactId>
 </project>
 
