@@ -11,15 +11,15 @@ public class Laptop {
     private Date releaseDate;
 
     public String showDetails() {
-        String stan;
+        String state;
         if(used) {
-            stan = "Użytany";
+            state = "Użytany";
         }
         else {
-            stan = "Nowy";
+            state = "Nowy";
         }
         SimpleDateFormat df = new SimpleDateFormat ("dd-MM-yyyy");
-        return "Nazwa: " + name + " Stan: " + stan + " Cena: " + price + " Data wydania: " + df.format(releaseDate);
+        return "Nazwa: " + name + "<br>Stan: " + state + "<br>Cena: " + price + "<br>Data wydania: " + df.format(releaseDate);
     }
 
     public long getId() {

@@ -30,6 +30,7 @@ public class FormAddProduktServlet extends HttpServlet {
                 "Data wydania: <input type='date' name='releaseDate'><br />" +
                 "<input type='submit' value=' Dodaj ' />" +
                 "</form>" +
+                "<a href='./'>Powrót</a>" +
                 "</body></html>");
         out.close();
     }
@@ -43,11 +44,14 @@ public class FormAddProduktServlet extends HttpServlet {
         String myCheckBoxValue = request.getParameter("used");
 
         boolean used;
+        String state;
         if (myCheckBoxValue == null) {
             used = false;
+            state = "Nie";
         }
         else {
             used = true;
+            state = "Tak";
         }
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -62,21 +66,30 @@ public class FormAddProduktServlet extends HttpServlet {
             laptop.setPrice(Double.valueOf(request.getParameter("price")));
             laptop.setReleaseDate(date);
 
-            Map gProducts = (Map) getServletContext().getAttribute("application_products");
-            gProducts.put(request.getParameter("id"), laptop);
-
-
-            out.println("<html><body><h2>Dodano produkt</h2>" +
-                    "<p>Id: " + request.getParameter("id") + "<br />" +
-                    "<p>Nazwa: " + request.getParameter("name") + "<br />" +
-                    "<p>Używany: " + String.valueOf(used) + "<br />" +
-                    "<p>Cena: " + request.getParameter("price") + "<br />" +
-                    "<p>Data wydania: " + request.getParameter("releaseDate") + "<br />" +
+            Map<Long, Laptop> gProducts = (Map<Long, Laptop>) getServletContext().getAttribute("application_products");
+            if(gProducts.containsKey(Long.valueOf(request.getParameter("id")))) {
+                out.println("<html><body><h2>Nie udało się dodać produktu - takie Id już istnieje</h2>" +
+                        "<a href='./'>Powrót</a>" +
+                        "</body></html>");
+                out.close();
+            }
+            else {
+                gProducts.put(Long.valueOf(request.getParameter("id")), laptop);
+                out.println("<html><body><h2>Dodano produkt</h2>" +
+                        "<p>Id: " + request.getParameter("id") + "<br />" +
+                        "<p>Nazwa: " + request.getParameter("name") + "<br />" +
+                        "<p>Używany: " + state + "<br />" +
+                        "<p>Cena: " + request.getParameter("price") + "<br />" +
+                        "<p>Data wydania: " + request.getParameter("releaseDate") + "<br />" +
+                        "<a href='./'>Powrót</a>" +
+                        "</body></html>");
+                out.close();
+            }
+        } catch (ParseException e) {
+            out.println("<html><body><h2>Nie udało się dodać produktu - format daty jest nie poprawny</h2>" +
                     "<a href='./'>Powrót</a>" +
                     "</body></html>");
             out.close();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
 
     }
