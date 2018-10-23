@@ -15,20 +15,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-@WebServlet(urlPatterns = "/form-add")
-public class FormAddProduktServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/add-product")
+public class AddProduktServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<html><body><h2>Dodaj produkt</h2>" +
                 "<form action='' method='POST'>" +
-                "Id: <input type='numer' name='id' /> <br />" +
-                "Nazwa: <input type='text' name='name' /> <br />" +
-                "Używany: <input type='checkbox' name='used'><br />" +
-                "Cena: <input type='number' name='price' step='any'><br />" +
-                "Data wydania: <input type='date' name='releaseDate'><br />" +
-                "<input type='submit' value=' Dodaj ' />" +
+                "Id: <input type='numer' name='id' required /> <br />" +
+                "Nazwa: <input type='text' name='name' required /> <br />" +
+                "Używany: <input type='checkbox' name='used' /><br />" +
+                "Cena: <input type='number' name='price' step='any' required /><br />" +
+                "Data wydania: <input type='date' name='releaseDate' required /><br />" +
+                "<input type='submit' value='Dodaj' />" +
                 "</form>" +
                 "<a href='./'>Powrót</a>" +
                 "</body></html>");

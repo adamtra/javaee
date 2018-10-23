@@ -23,7 +23,7 @@ public class MenuServlet extends HttpServlet {
         out.println("<html><body>" +
                 "<h2>Witaj w sklepie</h2>" +
                 "<ul>" +
-                "<li><a href='form-add'>Dodaj produkt</a></li>" +
+                "<li><a href='add-product'>Dodaj produkt</a></li>" +
                 "<li><a href='buy'>Kup produkty</a></li>" +
                 "<li><a href='summary'>Podsumowanie</a></li>" +
                 "</ul>");
