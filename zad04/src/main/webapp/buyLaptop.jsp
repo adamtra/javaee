@@ -17,6 +17,12 @@
                     l = (Laptop) it.next();
                     out.println("<tr style='border: 1px solid black'>" +
                             "<td>" + l.showDetails() + "</td>");
+                    out.println("<td>");
+                    out.println("<form action='addToCart.jsp' method='POST'>");
+                    out.println("<input name='id' hidden value='" + l.getId() + "'/>");
+                    out.println("<input type='submit' value='Do koszyka'/>");
+                    out.println("</form>");
+                    out.println("</td>");
                     out.println("</tr>");
                 }
             %>
