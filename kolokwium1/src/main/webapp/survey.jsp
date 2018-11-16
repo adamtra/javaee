@@ -53,6 +53,7 @@
                 out.print("checked");
             }
         %>>Jest super<br>
+        <button type="submit">Prześlij</button>
     </form>
 </body>
 </html>
