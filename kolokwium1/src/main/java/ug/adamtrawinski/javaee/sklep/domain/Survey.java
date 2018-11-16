@@ -1,5 +1,6 @@
 package ug.adamtrawinski.javaee.sklep.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +13,19 @@ public class Survey {
 
     public Survey() {
 
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat df = new SimpleDateFormat ("dd-MM-yyyy");
+        String comments = "";
+        for(String comment: this.comments) {
+            comments += comment + "<br>";
+        }
+        return "Data użytkowania (od): " + df.format(usedFrom) + "<br>" +
+                "Data użytkowania (do): " + df.format(usedTo) + "<br>" +
+                "Częstotliwość: " + frequency + "<br>" +
+                "Uwagi: " + comments;
     }
 
     public List<String> getComments() {

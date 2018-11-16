@@ -33,22 +33,22 @@
             }
         %>>Rzadziej<br>
         <p>Uwagi:</p>
-        <input type="checkbox" name="comments" <%
+        <input type="checkbox" name="comments" value="Uszkodzony ekran" <%
             if(survey.ifCommentSelected("Uszkodzony ekran")) {
                 out.print("checked");
             }
         %>>Uszkodzony ekran<br>
-        <input type="checkbox" name="comments" <%
+        <input type="checkbox" name="comments" value="Nie włącza się"<%
             if(survey.ifCommentSelected("Nie włącza się")) {
                 out.print("checked");
             }
         %>>Nie włącza się<br>
-        <input type="checkbox" name="comments" <%
+        <input type="checkbox" name="comments" value="Wolno działa" <%
             if(survey.ifCommentSelected("Wolno działa")) {
                 out.print("checked");
             }
         %>>Wolno działa<br>
-        <input type="checkbox" name="comments" <%
+        <input type="checkbox" name="comments" value="Jest super" <%
             if(survey.ifCommentSelected("Jest super")) {
                 out.print("checked");
             }

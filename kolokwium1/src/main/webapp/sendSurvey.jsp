@@ -1,8 +1,8 @@
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="java.text.DateFormat" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
@@ -17,11 +17,11 @@
   <jsp:setProperty name="survey" property="frequency" param="frequency" />
 
   <%
-//    List<String> selectedComments = new ArrayList<>();
-//    for (String comment : request.getParameterValues("comments")) {
-//      selectedComments.add(comment);
-//    }
-//    survey.setComments(selectedComments);
+    List<String> selectedComments = new ArrayList<String>();
+    for (String comment : request.getParameterValues("comments")) {
+      selectedComments.add(comment);
+    }
+    survey.setComments(selectedComments);
 
     DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
     Date dateFrom = format.parse(request.getParameter("usedFrom"));
@@ -46,6 +46,10 @@
 
   <p>Częstotliwość: ${survey.frequency}</p>
 
-  <%--<p>Uwagi: ${survey.comments}</p>--%>
+  <p>Uwagi: <br><%
+    for(String comment: survey.getComments()) {
+        out.print(comment + "<br>");
+    }
+  %></p>
   </body>
 </html>
