@@ -32,8 +32,27 @@
                 out.print("checked");
             }
         %>>Rzadziej<br>
-        <p>Uwagi</p>
-        <input type="checkbox" name="comments">Uszkodzony ekran
+        <p>Uwagi:</p>
+        <input type="checkbox" name="comments" <%
+            if(survey.ifCommentSelected("Uszkodzony ekran")) {
+                out.print("checked");
+            }
+        %>>Uszkodzony ekran<br>
+        <input type="checkbox" name="comments" <%
+            if(survey.ifCommentSelected("Nie włącza się")) {
+                out.print("checked");
+            }
+        %>>Nie włącza się<br>
+        <input type="checkbox" name="comments" <%
+            if(survey.ifCommentSelected("Wolno działa")) {
+                out.print("checked");
+            }
+        %>>Wolno działa<br>
+        <input type="checkbox" name="comments" <%
+            if(survey.ifCommentSelected("Jest super")) {
+                out.print("checked");
+            }
+        %>>Jest super<br>
     </form>
 </body>
 </html>

@@ -45,4 +45,13 @@ public class Survey {
     public void setUsedTo(Date usedTo) {
         this.usedTo = usedTo;
     }
+
+    public boolean ifCommentSelected(String comment) {
+        for(String element: this.comments) {
+            if(element.equals(comment)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
