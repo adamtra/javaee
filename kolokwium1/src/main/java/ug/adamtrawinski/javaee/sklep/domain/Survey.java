@@ -25,7 +25,7 @@ public class Survey {
         return "Data użytkowania (od): " + df.format(usedFrom) + "<br>" +
                 "Data użytkowania (do): " + df.format(usedTo) + "<br>" +
                 "Częstotliwość: " + frequency + "<br>" +
-                "Uwagi: " + comments;
+                "Uwagi:<br>" + comments;
     }
 
     public List<String> getComments() {

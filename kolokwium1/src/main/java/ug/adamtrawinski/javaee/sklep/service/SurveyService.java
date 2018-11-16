@@ -15,4 +15,8 @@ public class SurveyService {
     public void add(String id, Survey survey) {
         db.put(id, survey);
     }
+
+    public void delete(String key) {
+        db.remove(key);
+    }
 }
