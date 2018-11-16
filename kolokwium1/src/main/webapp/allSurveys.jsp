@@ -20,5 +20,8 @@
     %>
         <button type="submit">Usuń zaznaczone</button>
     </form>
+<p>
+    <a href="index.jsp">Wróć do menu</a>
+</p>
 </body>
 </html>
