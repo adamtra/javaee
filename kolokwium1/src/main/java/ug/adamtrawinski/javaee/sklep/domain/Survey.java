@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Survey {
     private List<String> comments = new ArrayList<String>();
-    private String frequency;
-    private Date usedFrom;
-    private Date usedTo;
+    private String frequency = "Często";
+    private Date usedFrom = new Date();
+    private Date usedTo = new Date();
 
     public Survey() {
 

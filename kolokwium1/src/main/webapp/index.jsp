@@ -16,6 +16,9 @@
             <li>
                 <a href='summary.jsp'>Podsumowanie</a>
             </li>
+            <li>
+                <a href='survey.jsp'>Uzupełnij ankietę</a>
+            </li>
         </ul>
     </body>
 </html>
