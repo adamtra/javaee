@@ -18,7 +18,7 @@
             %>" /><br>
         <p>Częstotliwość użytkowania:</p>
         <input type="radio" name="frequency" value="Codziennie" <%
-            if(survey.getFrequency().equals("Codzinnie")) {
+            if(survey.getFrequency().equals("Codziennie")) {
                 out.print("checked");
             }
         %>>Codzinnie<br>

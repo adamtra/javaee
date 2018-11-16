@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Survey {
     private List<String> comments = new ArrayList<String>();
-    private String frequency = "Codzinnie";
+    private String frequency = "Codziennie";
     private Date usedFrom = new Date();
     private Date usedTo = new Date();
 
