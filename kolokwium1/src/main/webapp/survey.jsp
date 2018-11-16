@@ -55,5 +55,8 @@
         %>>Jest super<br>
         <button type="submit">Prześlij</button>
     </form>
+    <p>
+        <a href="index.jsp">Wróć do menu</a>
+    </p>
 </body>
 </html>

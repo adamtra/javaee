@@ -51,5 +51,8 @@
         out.print(comment + "<br>");
     }
   %></p>
+  <p>
+    <a href="index.jsp">Wróć do menu</a>
+  </p>
   </body>
 </html>
