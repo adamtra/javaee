@@ -20,13 +20,13 @@ public class LaptopRESTService {
 	@GET
 	@Path("/{laptopId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Laptop getPerson(@PathParam("laptopId") long id) {
+	public Laptop getLaptop(@PathParam("laptopId") long id) {
 		return lm.getLaptop(id);
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Laptop> getPersons() {
+	public List<Laptop> getLaptops() {
 		return lm.getAllLaptops();
 	}
 
