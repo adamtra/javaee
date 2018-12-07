@@ -27,11 +27,14 @@ public class LaptopManager {
 	}
 
 	public void deleteLaptop(long id){
+		Laptop delete = null;
 		for(Laptop laptop: db) {
 			if(laptop.getId() == id) {
-				db.remove(laptop);
+				delete = laptop;
+				break;
 			}
 		}
+		db.remove(delete);
  	}
 	
 	public Laptop getLaptop(long id) {
