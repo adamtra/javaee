@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "5e3ec3e5-6fe0-4275-a0c6-24d0e45ef565",
+		"name": "Rest Test JavaEE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dodaj laptopa od ID 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n\t\"name\": \"Lenovo\",\n\t\"used\": false,\n\t\"price\": 1230.50,\n\t\"releaseDate\": \"2017-01-05\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodaj laptopa od ID 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 2,\n\t\"name\": \"Asus\",\n\t\"used\": true,\n\t\"price\": 890.99,\n\t\"releaseDate\": \"2018-10-02\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodaj laptopa od ID 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 3,\n\t\"name\": \"Razer\",\n\t\"used\": true,\n\t\"price\": 8900.97,\n\t\"releaseDate\": \"2018-01-02\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aktualizuj laptoptopa o ID 2",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 2,\n\t\"name\": \"HP\",\n\t\"used\": true,\n\t\"price\": 1200.00,\n\t\"releaseDate\": \"2017-11-15\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuń laptop o ID 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wyświetl laptop po ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuń wszystkie laptopy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rest/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rest",
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
