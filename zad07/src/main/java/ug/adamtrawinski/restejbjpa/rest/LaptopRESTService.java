@@ -38,10 +38,11 @@ public class LaptopRESTService {
 	}
 
 	@PUT
+	@Path("/{laptopId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Laptop updateLaptop(Laptop laptop) {
-		return lm.updateLaptop(laptop);
+	public Laptop updateLaptop(@PathParam("laptopId") long id, Laptop laptop) {
+		return lm.updateLaptop(laptop, id);
 	}
 
 

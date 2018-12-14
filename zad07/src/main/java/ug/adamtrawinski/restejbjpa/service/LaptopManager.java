@@ -17,13 +17,11 @@ public class LaptopManager {
 		em.persist(laptop);
 	}
 
-	public Laptop updateLaptop(Laptop laptop) {
-		Laptop old = getLaptop(laptop.getId());
+	public Laptop updateLaptop(Laptop laptop, long id) {
+		laptop.setId(id);
+		Laptop old = getLaptop(id);
 		if(old != null) {
-			old.setName(laptop.getName());
-			old.setPrice(laptop.getPrice());
-			old.setUsed(laptop.isUsed());
-			old.setReleaseDate(laptop.getReleaseDate());
+			em.merge(laptop);
 		}
 		return old;
 	}
