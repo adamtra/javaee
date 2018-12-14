@@ -38,19 +38,15 @@ public class LaptopManager {
 //		db.remove(delete);
 // 	}
 //
-//	public Laptop getLaptop(long id) {
-//		for(Laptop laptop: db) {
-//			if(laptop.getId() == id) {
-//				return laptop;
-//			}
-//		}
-//		return null;
-//	}
-//
-//	public List<Laptop> getAllLaptops(){
-//		return db;
-//	}
-//
+	public Laptop getLaptop(long id) {
+		return em.find(Laptop.class, id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Laptop> getAllLaptops(){
+		return em.createNamedQuery("laptop.all").getResultList();
+	}
+
 //	public void deleteAllLaptops(){
 //		db.clear();
 //	}

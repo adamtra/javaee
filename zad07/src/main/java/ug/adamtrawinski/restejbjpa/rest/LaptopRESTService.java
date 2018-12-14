@@ -17,18 +17,18 @@ public class LaptopRESTService {
 	@Inject
 	private LaptopManager lm;
 
-//	@GET
-//	@Path("/{laptopId}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Laptop getLaptop(@PathParam("laptopId") long id) {
-//		return lm.getLaptop(id);
-//	}
-//
-//	@GET
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Laptop> getLaptops() {
-//		return lm.getAllLaptops();
-//	}
+	@GET
+	@Path("/{laptopId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Laptop getLaptop(@PathParam("laptopId") long id) {
+		return lm.getLaptop(id);
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Laptop> getLaptops() {
+		return lm.getAllLaptops();
+	}
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

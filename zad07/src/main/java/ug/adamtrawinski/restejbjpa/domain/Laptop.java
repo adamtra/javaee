@@ -2,13 +2,14 @@ package ug.adamtrawinski.restejbjpa.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "laptop.all", query = "SELECT l FROM Laptop l"),
+        @NamedQuery(name = "laptop.delete.all", query = "DELETE FROM Laptop")
+})
 public class Laptop {
     private long id;
     private String name;
