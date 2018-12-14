@@ -34,7 +34,7 @@ public class LaptopRESTService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addLaptop(Laptop laptop) {
 		lm.addLaptop(laptop);
-		return Response.status(201).entity("Laptop").build();
+		return Response.status(Response.Status.CREATED).entity("Laptop").build();
 	}
 
 //	@PUT
@@ -43,14 +43,14 @@ public class LaptopRESTService {
 //	public Laptop updateLaptop(Laptop laptop) {
 //		return lm.updateLaptop(laptop);
 //	}
-//
-//
-//	@DELETE
-//	public Response clearLaptops() {
-//		lm.deleteAllLaptops();
-//		return Response.status(200).build();
-//	}
-//
+
+
+	@DELETE
+	public Response clearLaptops() {
+		lm.deleteAllLaptops();
+		return Response.status(Response.Status.OK).build();
+	}
+
 //	@DELETE
 //	@Path("/{laptopId}")
 //	public Response deleteLaptop(@PathParam("laptopId") long id) {

@@ -47,8 +47,8 @@ public class LaptopManager {
 		return em.createNamedQuery("laptop.all").getResultList();
 	}
 
-//	public void deleteAllLaptops(){
-//		db.clear();
-//	}
+	public void deleteAllLaptops(){
+		em.createNamedQuery("laptop.delete.all").executeUpdate();;
+	}
 
 }
