@@ -17,15 +17,16 @@ public class LaptopManager {
 		em.persist(laptop);
 	}
 
-//	public Laptop updateLaptop(Laptop laptop) {
-//		for (int i = 0; i < db.size(); i++) {
-//			if(db.get(i).getId() == laptop.getId()) {
-//				db.set(i, laptop);
-//				return laptop;
-//			}
-//		}
-//		return null;
-//	}
+	public Laptop updateLaptop(Laptop laptop) {
+		Laptop old = getLaptop(laptop.getId());
+		if(old != null) {
+			old.setName(laptop.getName());
+			old.setPrice(laptop.getPrice());
+			old.setUsed(laptop.isUsed());
+			old.setReleaseDate(laptop.getReleaseDate());
+		}
+		return old;
+	}
 
 	public void deleteLaptop(long id) {
 		Laptop laptop = getLaptop(id);

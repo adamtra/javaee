@@ -37,12 +37,12 @@ public class LaptopRESTService {
 		return Response.status(Response.Status.CREATED).entity("Laptop").build();
 	}
 
-//	@PUT
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Laptop updateLaptop(Laptop laptop) {
-//		return lm.updateLaptop(laptop);
-//	}
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Laptop updateLaptop(Laptop laptop) {
+		return lm.updateLaptop(laptop);
+	}
 
 
 	@DELETE
