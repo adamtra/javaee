@@ -26,18 +26,14 @@ public class LaptopManager {
 //		}
 //		return null;
 //	}
-//
-//	public void deleteLaptop(long id){
-//		Laptop delete = null;
-//		for(Laptop laptop: db) {
-//			if(laptop.getId() == id) {
-//				delete = laptop;
-//				break;
-//			}
-//		}
-//		db.remove(delete);
-// 	}
-//
+
+	public void deleteLaptop(long id) {
+		Laptop laptop = getLaptop(id);
+		if(laptop != null) {
+			em.remove(laptop);
+		}
+ 	}
+
 	public Laptop getLaptop(long id) {
 		return em.find(Laptop.class, id);
 	}
@@ -47,6 +43,7 @@ public class LaptopManager {
 		return em.createNamedQuery("laptop.all").getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void deleteAllLaptops(){
 		em.createNamedQuery("laptop.delete.all").executeUpdate();;
 	}

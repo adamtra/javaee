@@ -51,11 +51,11 @@ public class LaptopRESTService {
 		return Response.status(Response.Status.OK).build();
 	}
 
-//	@DELETE
-//	@Path("/{laptopId}")
-//	public Response deleteLaptop(@PathParam("laptopId") long id) {
-//		lm.deleteLaptop(id);
-//		return Response.status(200).build();
-//	}
+	@DELETE
+	@Path("/{laptopId}")
+	public Response deleteLaptop(@PathParam("laptopId") long id) {
+		lm.deleteLaptop(id);
+		return Response.status(200).build();
+	}
 
 }
