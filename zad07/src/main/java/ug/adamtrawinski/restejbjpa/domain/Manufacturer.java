@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "manufacturer.all", query = "SELECT m FROM Manufacturer m"),
         @NamedQuery(name = "manufacturer.delete.all", query = "DELETE FROM Manufacturer")
 })
 public class Manufacturer {
