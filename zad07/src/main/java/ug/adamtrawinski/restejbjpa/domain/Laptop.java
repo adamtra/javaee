@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @NamedQueries({
@@ -16,6 +17,8 @@ public class Laptop {
     private boolean used;
     private double price;
     private Date releaseDate;
+    private Manufacturer manufacturer;
+    private List<Person> owners;
 
     public Laptop() {
 
@@ -64,4 +67,21 @@ public class Laptop {
         this.releaseDate = releaseDate;
     }
 
+    @ManyToOne
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public List<Person> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(List<Person> owners) {
+        this.owners = owners;
+    }
 }
