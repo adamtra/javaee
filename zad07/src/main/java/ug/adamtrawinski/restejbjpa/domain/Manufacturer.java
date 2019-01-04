@@ -1,11 +1,11 @@
 package ug.adamtrawinski.restejbjpa.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "manufacturer.delete.all", query = "DELETE FROM Manufacturer")
+})
 public class Manufacturer {
     private long id;
     private String name;

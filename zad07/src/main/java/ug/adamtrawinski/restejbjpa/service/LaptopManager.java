@@ -44,7 +44,7 @@ public class LaptopManager {
 
 	@SuppressWarnings("unchecked")
 	public void deleteAllLaptops(){
-		em.createNamedQuery("laptop.delete.all").executeUpdate();;
+		em.createNamedQuery("laptop.delete.all").executeUpdate();
 	}
 
 }
