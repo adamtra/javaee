@@ -77,6 +77,17 @@ public class Laptop {
         this.manufacturer = manufacturer;
     }
 
+
+    public void addOwner(Person owner) {
+        getOwners().add(owner);
+        owner.getLaptops().add(this);
+    }
+
+    public void removeOwner(Person owner) {
+        getOwners().remove(owner);
+        owner.getLaptops().remove(this);
+    }
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Person> getOwners() {
         return owners;

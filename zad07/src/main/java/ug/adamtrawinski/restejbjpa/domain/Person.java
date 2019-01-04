@@ -45,6 +45,16 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public void addLaptop(Laptop laptop) {
+        getLaptops().add(laptop);
+        laptop.getOwners().add(this);
+    }
+
+    public void removeLaptop(Laptop laptop) {
+        getLaptops().remove(laptop);
+        laptop.getOwners().remove(this);
+    }
+
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "owners")
     public List<Laptop> getLaptops() {
         return laptops;
