@@ -19,6 +19,7 @@ public class Laptop {
     private Date releaseDate;
     private Manufacturer manufacturer;
     private List<Person> owners;
+    private SerialCode serialCode;
 
     public Laptop() {
 
@@ -83,5 +84,14 @@ public class Laptop {
 
     public void setOwners(List<Person> owners) {
         this.owners = owners;
+    }
+
+    @OneToOne
+    public SerialCode getSerialCode() {
+        return serialCode;
+    }
+
+    public void setSerialCode(SerialCode serialCode) {
+        this.serialCode = serialCode;
     }
 }
