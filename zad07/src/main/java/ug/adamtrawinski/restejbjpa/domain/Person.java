@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "person.all", query = "SELECT p FROM Person p"),
+        @NamedQuery(name = "person.delete.all", query = "DELETE FROM Person")
+})
 public class Person {
     private long id;
     private String firstName;
@@ -41,7 +45,7 @@ public class Person {
         this.lastName = lastName;
     }
 
-    @ManyToMany(mappedBy = "owners")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "owners")
     public List<Laptop> getLaptops() {
         return laptops;
     }
