@@ -5,6 +5,7 @@ import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.*;
 import java.util.List;
 
 @Stateless
@@ -37,9 +38,14 @@ public class LaptopManager {
 		return em.find(Laptop.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Laptop> getAllLaptops(){
-		return em.createNamedQuery("laptop.all").getResultList();
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<Laptop> criteria = builder.createQuery(Laptop.class);
+		Root<Laptop> laptopRoot = criteria.from(Laptop.class);
+		laptopRoot.fetch("manufacturer", JoinType.LEFT);
+		laptopRoot.fetch("serialCode", JoinType.LEFT);
+		criteria.select(laptopRoot);
+		return em.createQuery(criteria).getResultList();
 	}
 
 	@SuppressWarnings("unchecked")

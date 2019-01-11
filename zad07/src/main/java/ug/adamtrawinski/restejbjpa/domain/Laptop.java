@@ -68,7 +68,7 @@ public class Laptop {
         this.releaseDate = releaseDate;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
@@ -97,7 +97,7 @@ public class Laptop {
         this.owners = owners;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     public SerialCode getSerialCode() {
         return serialCode;
     }
