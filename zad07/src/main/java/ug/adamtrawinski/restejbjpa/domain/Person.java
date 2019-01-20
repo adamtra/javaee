@@ -1,5 +1,7 @@
 package ug.adamtrawinski.restejbjpa.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,17 +47,18 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public void addLaptop(Laptop laptop) {
-        getLaptops().add(laptop);
-        laptop.getOwners().add(this);
-    }
+//    public void addLaptop(Laptop laptop) {
+//        getLaptops().add(laptop);
+//        laptop.getOwners().add(this);
+//    }
+//
+//    public void removeLaptop(Laptop laptop) {
+//        getLaptops().remove(laptop);
+//        laptop.getOwners().remove(this);
+//    }
 
-    public void removeLaptop(Laptop laptop) {
-        getLaptops().remove(laptop);
-        laptop.getOwners().remove(this);
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "owners")
+    @ManyToMany(mappedBy = "owners")
+    @JsonIgnore
     public List<Laptop> getLaptops() {
         return laptops;
     }

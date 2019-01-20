@@ -41,8 +41,11 @@ public class LaptopRESTService {
 	@Path("/{laptopId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Laptop updateLaptop(@PathParam("laptopId") long id, Laptop laptop) {
-		return lm.updateLaptop(laptop, id);
+	public Response updateLaptop(@PathParam("laptopId") long id, Laptop laptop) {
+		if(lm.updateLaptop(laptop, id)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
 	}
 
 

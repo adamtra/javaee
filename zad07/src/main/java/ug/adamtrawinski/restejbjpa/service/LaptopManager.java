@@ -18,13 +18,14 @@ public class LaptopManager {
 		em.persist(laptop);
 	}
 
-	public Laptop updateLaptop(Laptop laptop, long id) {
+	public boolean updateLaptop(Laptop laptop, long id) {
 		laptop.setId(id);
 		Laptop old = getLaptop(id);
 		if(old != null) {
 			em.merge(laptop);
+			return true;
 		}
-		return old;
+		return false;
 	}
 
 	public void deleteLaptop(long id) {
@@ -44,6 +45,7 @@ public class LaptopManager {
 		Root<Laptop> laptopRoot = criteria.from(Laptop.class);
 		laptopRoot.fetch("manufacturer", JoinType.LEFT);
 		laptopRoot.fetch("serialCode", JoinType.LEFT);
+		laptopRoot.fetch("owners", JoinType.LEFT);
 		criteria.select(laptopRoot);
 		return em.createQuery(criteria).getResultList();
 	}

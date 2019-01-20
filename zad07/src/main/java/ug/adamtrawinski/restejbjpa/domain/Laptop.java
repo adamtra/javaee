@@ -78,17 +78,17 @@ public class Laptop {
     }
 
 
-    public void addOwner(Person owner) {
-        getOwners().add(owner);
-        owner.getLaptops().add(this);
-    }
+//    public void addOwner(Person owner) {
+//        getOwners().add(owner);
+//        owner.getLaptops().add(this);
+//    }
+//
+//    public void removeOwner(Person owner) {
+//        getOwners().remove(owner);
+//        owner.getLaptops().remove(this);
+//    }
 
-    public void removeOwner(Person owner) {
-        getOwners().remove(owner);
-        owner.getLaptops().remove(this);
-    }
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     public List<Person> getOwners() {
         return owners;
     }
