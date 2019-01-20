@@ -5,6 +5,7 @@ import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.criteria.*;
 import java.util.List;
 
@@ -35,8 +36,15 @@ public class LaptopManager {
 		}
  	}
 
+	@SuppressWarnings("unchecked")
 	public Laptop getLaptop(long id) {
-		return em.find(Laptop.class, id);
+		Query q = em.createNamedQuery("laptop.findById");
+		q.setParameter("id", id);
+		List<Laptop> resultList = q.getResultList();
+		if(!resultList.isEmpty()) {
+			return resultList.get(0);
+		}
+		return null;
 	}
 
 	public List<Laptop> getAllLaptops(){

@@ -1,7 +1,9 @@
 package ug.adamtrawinski.restejbjpa.rest;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import ug.adamtrawinski.restejbjpa.service.LaptopManager;
+import ug.adamtrawinski.restejbjpa.view.View;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,12 +22,14 @@ public class LaptopRESTService {
 	@GET
 	@Path("/{laptopId}")
 	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummaryWithRelations.class)
 	public Laptop getLaptop(@PathParam("laptopId") long id) {
 		return lm.getLaptop(id);
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummaryWithRelations.class)
 	public List<Laptop> getLaptops() {
 		return lm.getAllLaptops();
 	}

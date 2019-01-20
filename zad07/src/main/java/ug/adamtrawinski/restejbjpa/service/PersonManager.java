@@ -5,6 +5,7 @@ import ug.adamtrawinski.restejbjpa.domain.Person;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
@@ -33,8 +34,15 @@ public class PersonManager {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public Person getPerson(long id) {
-        return em.find(Person.class, id);
+        Query q = em.createNamedQuery("person.findById");
+        q.setParameter("id", id);
+        List<Person> resultList = q.getResultList();
+        if(!resultList.isEmpty()) {
+            return resultList.get(0);
+        }
+        return null;
     }
 
     @SuppressWarnings("unchecked")

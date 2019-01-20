@@ -1,6 +1,8 @@
 package ug.adamtrawinski.restejbjpa.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+import ug.adamtrawinski.restejbjpa.view.View;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,13 +10,15 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "person.all", query = "SELECT p FROM Person p"),
+        @NamedQuery(name = "person.all", query = "SELECT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc"),
+        @NamedQuery(name = "person.findById", query = "SELECT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc WHERE p.id = :id"),
         @NamedQuery(name = "person.delete.all", query = "DELETE FROM Person")
 })
 public class Person {
     private long id;
     private String firstName;
     private String lastName;
+    @JsonView(View.PersonSummaryWithRelations.class)
     private List<Laptop> laptops = new ArrayList<>();
 
     public Person() {
@@ -47,15 +51,15 @@ public class Person {
         this.lastName = lastName;
     }
 
-//    public void addLaptop(Laptop laptop) {
-//        getLaptops().add(laptop);
-//        laptop.getOwners().add(this);
-//    }
-//
-//    public void removeLaptop(Laptop laptop) {
-//        getLaptops().remove(laptop);
-//        laptop.getOwners().remove(this);
-//    }
+    public void addLaptop(Laptop laptop) {
+        getLaptops().add(laptop);
+        laptop.getOwners().add(this);
+    }
+
+    public void removeLaptop(Laptop laptop) {
+        getLaptops().remove(laptop);
+        laptop.getOwners().remove(this);
+    }
 
     @ManyToMany(mappedBy = "owners")
     @JsonIgnore
