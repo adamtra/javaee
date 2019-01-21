@@ -11,13 +11,22 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "laptop.findById", query = "SELECT l FROM Laptop l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc LEFT JOIN FETCH l.owners WHERE l.id = :id"),
+        @NamedQuery(name = "laptop.findByNameLike", query = "SELECT l FROM Laptop l WHERE LOWER(l.name) LIKE LOWER(CONCAT('%', :name, '%'))"),
+        @NamedQuery(name = "laptop.findPriceBetween", query = "SELECT l FROM Laptop l WHERE l.price >= :min AND l.price <= :max"),
+        @NamedQuery(name = "laptop.findBySerialCode", query = "SELECT l FROM Laptop l JOIN l.serialCode sc WHERE sc.code = :code"),
+        @NamedQuery(name = "laptop.findByManufacturer", query = "SELECT l FROM Laptop l JOIN l.manufacturer m WHERE m.name = :manufacturer"),
         @NamedQuery(name = "laptop.delete.all", query = "DELETE FROM Laptop")
 })
 public class Laptop {
+    @JsonView(View.LaptopSummary.class)
     private long id;
+    @JsonView(View.LaptopSummary.class)
     private String name;
+    @JsonView(View.LaptopSummary.class)
     private boolean used;
+    @JsonView(View.LaptopSummary.class)
     private double price;
+    @JsonView(View.LaptopSummary.class)
     private Date releaseDate;
     @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class})
     private Manufacturer manufacturer;

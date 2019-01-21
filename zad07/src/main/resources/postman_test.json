@@ -215,6 +215,169 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Lista laptopów nowszych od daty",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/newer-older?newer=true&releaseDate=2018-05-05",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"newer-older"
+					],
+					"query": [
+						{
+							"key": "newer",
+							"value": "true"
+						},
+						{
+							"key": "releaseDate",
+							"value": "2018-05-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów zawierających frazę",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/name-like?name=pa",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"name-like"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "pa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów w przedziale cenowym",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/price?min=100&max=140.9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"price"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "100"
+						},
+						{
+							"key": "max",
+							"value": "140.9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Laptop z numerem seryjnym",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/serial-code?code=ASD-ASD",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"serial-code"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "ASD-ASD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów producenta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/manufacturer?name=Lenovo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"manufacturer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Lenovo"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -75,6 +75,39 @@ public class LaptopManager {
 		return em.createQuery(criteria).getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Laptop> getLaptopsByNameLike(String name) {
+		Query q = em.createNamedQuery("laptop.findByNameLike");
+		q.setParameter("name", name);
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Laptop> getLaptopsPriceBetween(double min, double max) {
+		Query q = em.createNamedQuery("laptop.findPriceBetween");
+		q.setParameter("min", min);
+		q.setParameter("max", max);
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public Laptop getLaptopBySerialCode(String code) {
+		Query q = em.createNamedQuery("laptop.findBySerialCode");
+		q.setParameter("code", code);
+		List<Laptop> resultList = q.getResultList();
+		if(!resultList.isEmpty()) {
+			return resultList.get(0);
+		}
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Laptop> getLaptopsByManufacturer(String manufacturer) {
+		Query q = em.createNamedQuery("laptop.findByManufacturer");
+		q.setParameter("manufacturer", manufacturer);
+		return q.getResultList();
+	}
+
 
 	@SuppressWarnings("unchecked")
 	public void deleteAllLaptops(){

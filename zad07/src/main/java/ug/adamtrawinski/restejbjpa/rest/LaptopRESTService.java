@@ -51,6 +51,38 @@ public class LaptopRESTService {
 		}
 	}
 
+	@GET
+	@Path("/name-like")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummary.class)
+	public List<Laptop> getLaptopsByNameLike(@QueryParam("name") String name) {
+		return lm.getLaptopsByNameLike(name);
+	}
+
+	@GET
+	@Path("/manufacturer")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummary.class)
+	public List<Laptop> getLaptopsByManufacturer(@QueryParam("name") String manufacturer) {
+		return lm.getLaptopsByManufacturer(manufacturer);
+	}
+
+	@GET
+	@Path("/serial-code")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummary.class)
+	public Laptop getLaptopBySerialCode(@QueryParam("code") String code) {
+		return lm.getLaptopBySerialCode(code);
+	}
+
+	@GET
+	@Path("/price")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummary.class)
+	public List<Laptop> getLaptopBySerialCode(@QueryParam("min") double min, @QueryParam("max") double max) {
+		return lm.getLaptopsPriceBetween(min, max);
+	}
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addLaptop(Laptop laptop) {
