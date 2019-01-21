@@ -83,6 +83,14 @@ public class LaptopRESTService {
 		return lm.getLaptopsPriceBetween(min, max);
 	}
 
+	@GET
+	@Path("/owner")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummary.class)
+	public List<Laptop> getLaptopsByOwner(@QueryParam("first_name") String firstName) {
+		return lm.getLaptopsByOwner(firstName);
+	}
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addLaptop(Laptop laptop) {

@@ -108,6 +108,13 @@ public class LaptopManager {
 		return q.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Laptop> getLaptopsByOwner(String firstName) {
+		Query q = em.createNamedQuery("laptop.findByOwnerFirstName");
+		q.setParameter("first_name", firstName);
+		return q.getResultList();
+	}
+
 
 	@SuppressWarnings("unchecked")
 	public void deleteAllLaptops(){

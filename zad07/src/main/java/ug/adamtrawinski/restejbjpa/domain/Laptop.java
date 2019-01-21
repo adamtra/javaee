@@ -15,6 +15,7 @@ import java.util.List;
         @NamedQuery(name = "laptop.findPriceBetween", query = "SELECT l FROM Laptop l WHERE l.price >= :min AND l.price <= :max"),
         @NamedQuery(name = "laptop.findBySerialCode", query = "SELECT l FROM Laptop l JOIN l.serialCode sc WHERE sc.code = :code"),
         @NamedQuery(name = "laptop.findByManufacturer", query = "SELECT l FROM Laptop l JOIN l.manufacturer m WHERE m.name = :manufacturer"),
+        @NamedQuery(name = "laptop.findByOwnerFirstName", query = "SELECT l FROM Laptop l LEFT JOIN l.owners o WHERE o.firstName = :first_name"),
         @NamedQuery(name = "laptop.delete.all", query = "DELETE FROM Laptop")
 })
 public class Laptop {
