@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "9627200b-d089-4ee3-8ca2-41dfd9fcc030",
-		"name": "Rest + DB Test JavaEE",
+		"_postman_id": "43c6dd0f-4846-493f-9712-52eb884994d8",
+		"name": "Projekt",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Lenovo\",\n\t\"used\": \"true\",\n\t\"price\": \"135.53\",\n\t\"releaseDate\": \"2018-05-10\"\n}"
+					"raw": "{\n\t\"name\": \"ThinkPad\",\n\t\"used\": \"true\",\n\t\"price\": \"135.53\",\n\t\"releaseDate\": \"2018-05-10\"\n}"
 				},
 				"url": {
 					"raw": "localhost:8080/restejbjpa/api/laptop",
@@ -37,7 +37,7 @@
 			"response": []
 		},
 		{
-			"name": "Dodanie laptopa 2",
+			"name": "Dodanie SerialCode 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -50,10 +50,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Asus\",\n\t\"used\": false,\n\t\"price\": 890.99,\n\t\"releaseDate\": \"2018-10-02\"\n}"
+					"raw": "{\n\t\"code\": \"ASD-ASD\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"raw": "localhost:8080/restejbjpa/api/serial-code",
 					"host": [
 						"localhost"
 					],
@@ -61,14 +61,14 @@
 					"path": [
 						"restejbjpa",
 						"api",
-						"laptop"
+						"serial-code"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Dodanie laptopa 3",
+			"name": "Dodanie producenta 1",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -81,10 +81,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Razer\",\n\t\"used\": true,\n\t\"price\": 8900.97,\n\t\"releaseDate\": \"2018-01-02\"\n}"
+					"raw": "{\n\t\"name\": \"Lenovo\",\n\t\"operateSince\": 1990\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"raw": "localhost:8080/restejbjpa/api/manufacturer",
 					"host": [
 						"localhost"
 					],
@@ -92,23 +92,30 @@
 					"path": [
 						"restejbjpa",
 						"api",
-						"laptop"
+						"manufacturer"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Pobranie laptopa po ID 1",
+			"name": "Dodaj osobę 1",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"firstName\": \"Jan\",\n\t\"lastName\": \"Kowalski\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop/1",
+					"raw": "localhost:8080/restejbjpa/api/person",
 					"host": [
 						"localhost"
 					],
@@ -116,24 +123,30 @@
 					"path": [
 						"restejbjpa",
 						"api",
-						"laptop",
-						"1"
+						"person"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Pobranie wszystkich laptopów",
+			"name": "Dodaj osobę 2",
 			"request": {
-				"method": "GET",
-				"header": [],
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n\t\"firstName\": \"Piotr\",\n\t\"lastName\": \"Malinowski\"\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"raw": "localhost:8080/restejbjpa/api/person",
 					"host": [
 						"localhost"
 					],
@@ -141,63 +154,14 @@
 					"path": [
 						"restejbjpa",
 						"api",
-						"laptop"
+						"person"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Usunięcie laptopa o ID 2",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop/2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"restejbjpa",
-						"api",
-						"laptop",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Usuwanie wszystkich laptopów",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"restejbjpa",
-						"api",
-						"laptop"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Aktualizacja laptopa o ID 1",
+			"name": "Edycja laptopa 1",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -210,7 +174,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Toshiba\",\n\t\"used\": \"true\",\n\t\"price\": \"1350.53\",\n\t\"releaseDate\": \"2018-08-10\"\n}"
+					"raw": "{\n\t\"name\": \"Yoga\",\n\t\"used\": \"true\",\n\t\"price\": \"135.53\",\n\t\"releaseDate\": \"2018-05-10\",\n\t\"serialCode\": {\n\t\t\"id\": 1\n\t},\n\t\"manufacturer\": {\n\t\t\"id\": 1\n\t},\n\t\"owners\": [{\n\t\t\"id\": 1\n\t},{\n\t\t\"id\": 2\n\t}]\n}"
 				},
 				"url": {
 					"raw": "localhost:8080/restejbjpa/api/laptop/1",
@@ -223,6 +187,30 @@
 						"api",
 						"laptop",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop"
 					]
 				}
 			},

@@ -54,7 +54,7 @@ public class LaptopManager {
 		laptopRoot.fetch("manufacturer", JoinType.LEFT);
 		laptopRoot.fetch("serialCode", JoinType.LEFT);
 		laptopRoot.fetch("owners", JoinType.LEFT);
-		criteria.select(laptopRoot);
+		criteria.distinct(true);
 		return em.createQuery(criteria).getResultList();
 	}
 
