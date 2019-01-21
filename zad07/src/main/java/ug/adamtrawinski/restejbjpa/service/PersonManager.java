@@ -19,13 +19,14 @@ public class PersonManager {
         em.persist(person);
     }
 
-    public Person updatePerson(Person person, long id) {
+    public boolean updatePerson(Person person, long id) {
         person.setId(id);
         Person old = getPerson(id);
         if(old != null) {
             em.merge(person);
+            return true;
         }
-        return old;
+        return false;
     }
 
     public void deletePerson(long id) {
@@ -44,6 +45,13 @@ public class PersonManager {
             return resultList.get(0);
         }
         return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Person> getPersonByFirstName(String firstName) {
+        Query q = em.createNamedQuery("person.findByFirstName");
+        q.setParameter("first_name", firstName);
+        return q.getResultList();
     }
 
     @SuppressWarnings("unchecked")

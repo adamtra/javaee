@@ -12,14 +12,18 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "person.all", query = "SELECT DISTINCT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc"),
         @NamedQuery(name = "person.findById", query = "SELECT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc WHERE p.id = :id"),
+        @NamedQuery(name = "person.findByFirstName", query = "SELECT p FROM Person p WHERE p.firstName = :first_name"),
         @NamedQuery(name = "person.getLaptops", query = "SELECT l FROM Person p LEFT JOIN p.laptops l LEFT JOIN FETCH l.manufacturer LEFT JOIN FETCH l.serialCode WHERE p.id = :id"),
         @NamedQuery(name = "person.delete.all", query = "DELETE FROM Person")
 })
 public class Person {
+    @JsonView({View.PersonSummary.class, View.LaptopSummaryWithRelations.class})
     private long id;
+    @JsonView({View.PersonSummary.class, View.LaptopSummaryWithRelations.class})
     private String firstName;
+    @JsonView({View.PersonSummary.class, View.LaptopSummaryWithRelations.class})
     private String lastName;
-    @JsonView(View.PersonSummaryWithRelations.class)
+    @JsonView({View.PersonSummaryWithRelations.class})
     private List<Laptop> laptops = new ArrayList<>();
 
     public Person() {

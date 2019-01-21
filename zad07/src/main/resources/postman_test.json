@@ -37,37 +37,6 @@
 			"response": []
 		},
 		{
-			"name": "Dodanie SerialCode 1",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"ASD-ASD\"\n}"
-				},
-				"url": {
-					"raw": "localhost:8080/restejbjpa/api/serial-code",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"restejbjpa",
-						"api",
-						"serial-code"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Dodanie producenta 1",
 			"request": {
 				"method": "POST",
@@ -93,6 +62,37 @@
 						"restejbjpa",
 						"api",
 						"manufacturer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodanie SerialCode 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"ASD-ASD\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/serial-code",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"serial-code"
 					]
 				}
 			},
@@ -659,6 +659,37 @@
 			"response": []
 		},
 		{
+			"name": "Lista osób o imieniu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person/first-name?name=Jan",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person",
+						"first-name"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jan"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Usunięcie laptopa 1",
 			"request": {
 				"method": "DELETE",
@@ -702,6 +733,81 @@
 						"restejbjpa",
 						"api",
 						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie numery seryjnego 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/serial-code/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"serial-code",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie producenta 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/manufacturer/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"manufacturer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie osoby 1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person",
+						"1"
 					]
 				}
 			},

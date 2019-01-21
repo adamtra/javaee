@@ -43,6 +43,14 @@ public class PersonRESTService {
 		return pm.getLaptops(id);
 	}
 
+	@GET
+	@Path("/first-name")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.PersonSummary.class)
+	public List<Person> getPersonsByFirstName(@QueryParam("name") String firstName) {
+		return pm.getPersonByFirstName(firstName);
+	}
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addPerson(Person person) {
@@ -54,8 +62,11 @@ public class PersonRESTService {
 	@Path("/{personId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Person updatePerson(@PathParam("personId") long id, Person person) {
-		return pm.updatePerson(person, id);
+	public Response updatePerson(@PathParam("personId") long id, Person person) {
+		if(pm.updatePerson(person, id)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
 	}
 
 
