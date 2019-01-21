@@ -193,6 +193,130 @@
 			"response": []
 		},
 		{
+			"name": "Dodanie SerialCode 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"QWE-RTY\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/serial-code",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"serial-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodanie producenta 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Razer\",\n\t\"operateSince\": 2005\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/manufacturer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"manufacturer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodanie laptopa 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Blade\",\n\t\"used\": \"false\",\n\t\"price\": \"12000.00\",\n\t\"releaseDate\": \"2018-03-05\",\n\t\"manufacturer\": {\n\t\t\"id\": 2\n\t},\n\t\"serialCode\": {\n\t\t\"id\": 2\n\t},\n\t\"owners\": [{\n\t\t\"id\": 2\n\t}]\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dodanie laptopa 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"ThinkPad\",\n\t\"used\": \"false\",\n\t\"price\": \"1350.53\",\n\t\"releaseDate\": \"2018-06-10\",\n\t\"manufacturer\": {\n\t\t\"id\": 1\n\t}\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Lista laptopów",
 			"request": {
 				"method": "GET",
@@ -261,7 +385,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop/name-like?name=pa",
+					"raw": "localhost:8080/restejbjpa/api/laptop/name-like?name=a",
 					"host": [
 						"localhost"
 					],
@@ -275,7 +399,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "pa"
+							"value": "a"
 						}
 					]
 				}
@@ -389,7 +513,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:8080/restejbjpa/api/laptop/owner?first_name=Jan",
+					"raw": "localhost:8080/restejbjpa/api/laptop/owner?first_name=Piotr",
 					"host": [
 						"localhost"
 					],
@@ -403,7 +527,7 @@
 					"query": [
 						{
 							"key": "first_name",
-							"value": "Jan"
+							"value": "Piotr"
 						}
 					]
 				}
