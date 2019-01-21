@@ -1,6 +1,5 @@
 package ug.adamtrawinski.restejbjpa.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import ug.adamtrawinski.restejbjpa.view.View;
 
@@ -67,7 +66,6 @@ public class Person {
     }
 
     @ManyToMany(mappedBy = "owners")
-    @JsonIgnore
     public List<Laptop> getLaptops() {
         return laptops;
     }
