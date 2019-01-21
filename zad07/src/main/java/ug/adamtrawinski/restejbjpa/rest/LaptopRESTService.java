@@ -10,6 +10,9 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Path("laptop")
@@ -32,6 +35,20 @@ public class LaptopRESTService {
 	@JsonView(View.LaptopSummaryWithRelations.class)
 	public List<Laptop> getLaptops() {
 		return lm.getAllLaptops();
+	}
+
+	@GET
+	@Path("/newer-older")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopSummaryWithRelations.class)
+	public Response getLaptopsOlderOrNewer(@QueryParam("releaseDate") String releaseDate, @QueryParam("newer") boolean newer) {
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			Date date = sdf.parse(releaseDate);
+			return Response.ok(lm.getLaptopsNewerOrOlderThan(newer, date), MediaType.APPLICATION_JSON).build();
+		} catch (ParseException e) {
+			return Response.status(Response.Status.BAD_REQUEST).entity("Data musi być w formacie yyyy-MM-dd").build();
+		}
 	}
 
 	@POST
