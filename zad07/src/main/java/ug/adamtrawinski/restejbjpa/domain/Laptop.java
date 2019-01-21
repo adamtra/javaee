@@ -30,11 +30,11 @@ public class Laptop {
     private double price;
     @JsonView(View.LaptopSummary.class)
     private Date releaseDate;
-    @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class})
+    @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class, View.LaptopSummaryWithoutOwners.class})
     private Manufacturer manufacturer;
     @JsonView({View.LaptopSummaryWithRelations.class, View.LaptopOwners.class})
     private List<Person> owners;
-    @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class})
+    @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class, View.LaptopSummaryWithoutOwners.class})
     private SerialCode serialCode;
 
     public Laptop() {

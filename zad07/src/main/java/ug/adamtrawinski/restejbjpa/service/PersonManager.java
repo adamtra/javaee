@@ -1,5 +1,6 @@
 package ug.adamtrawinski.restejbjpa.service;
 
+import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import ug.adamtrawinski.restejbjpa.domain.Person;
 
 import javax.ejb.Stateless;
@@ -43,6 +44,13 @@ public class PersonManager {
             return resultList.get(0);
         }
         return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Laptop> getLaptops(long id) {
+        Query q = em.createNamedQuery("person.getLaptops");
+        q.setParameter("id", id);
+        return q.getResultList();
     }
 
     @SuppressWarnings("unchecked")

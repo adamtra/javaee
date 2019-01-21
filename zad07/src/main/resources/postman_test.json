@@ -341,6 +341,104 @@
 			"response": []
 		},
 		{
+			"name": "Lista osób",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista laptopów osoby",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person/1/laptops",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person",
+						"1",
+						"laptops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista numerów seryjnych",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/serial-code",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"serial-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista producentów",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/manufacturer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"manufacturer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Lista laptopów nowszych od daty",
 			"request": {
 				"method": "GET",

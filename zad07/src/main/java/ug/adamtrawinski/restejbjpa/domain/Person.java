@@ -10,8 +10,9 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "person.all", query = "SELECT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc"),
+        @NamedQuery(name = "person.all", query = "SELECT DISTINCT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc"),
         @NamedQuery(name = "person.findById", query = "SELECT p FROM Person p LEFT JOIN FETCH p.laptops l LEFT JOIN FETCH l.manufacturer m LEFT JOIN FETCH l.serialCode sc WHERE p.id = :id"),
+        @NamedQuery(name = "person.getLaptops", query = "SELECT l FROM Person p LEFT JOIN p.laptops l LEFT JOIN FETCH l.manufacturer LEFT JOIN FETCH l.serialCode WHERE p.id = :id"),
         @NamedQuery(name = "person.delete.all", query = "DELETE FROM Person")
 })
 public class Person {

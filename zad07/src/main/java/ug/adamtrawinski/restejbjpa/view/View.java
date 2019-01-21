@@ -4,5 +4,6 @@ public class View {
     public interface LaptopSummary {}
     public interface LaptopOwners {}
     public interface LaptopSummaryWithRelations extends LaptopSummary {}
-    public interface PersonSummaryWithRelations {}
+    public interface LaptopSummaryWithoutOwners extends LaptopSummary {}
+    public interface PersonSummaryWithRelations extends LaptopSummary {}
 }
