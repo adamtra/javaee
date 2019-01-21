@@ -16,6 +16,7 @@ import java.util.List;
         @NamedQuery(name = "laptop.findBySerialCode", query = "SELECT l FROM Laptop l JOIN l.serialCode sc WHERE sc.code = :code"),
         @NamedQuery(name = "laptop.findByManufacturer", query = "SELECT l FROM Laptop l JOIN l.manufacturer m WHERE m.name = :manufacturer"),
         @NamedQuery(name = "laptop.findByOwnerFirstName", query = "SELECT l FROM Laptop l LEFT JOIN l.owners o WHERE o.firstName = :first_name"),
+        @NamedQuery(name = "laptop.getOwners", query = "SELECT o FROM Laptop l LEFT JOIN l.owners o WHERE l.id = :id"),
         @NamedQuery(name = "laptop.delete.all", query = "DELETE FROM Laptop")
 })
 public class Laptop {
@@ -31,7 +32,7 @@ public class Laptop {
     private Date releaseDate;
     @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class})
     private Manufacturer manufacturer;
-    @JsonView(View.LaptopSummaryWithRelations.class)
+    @JsonView({View.LaptopSummaryWithRelations.class, View.LaptopOwners.class})
     private List<Person> owners;
     @JsonView({View.LaptopSummaryWithRelations.class, View.PersonSummaryWithRelations.class})
     private SerialCode serialCode;

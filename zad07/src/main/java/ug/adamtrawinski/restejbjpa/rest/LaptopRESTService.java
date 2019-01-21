@@ -2,6 +2,7 @@ package ug.adamtrawinski.restejbjpa.rest;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import ug.adamtrawinski.restejbjpa.domain.Laptop;
+import ug.adamtrawinski.restejbjpa.domain.Person;
 import ug.adamtrawinski.restejbjpa.service.LaptopManager;
 import ug.adamtrawinski.restejbjpa.view.View;
 
@@ -89,6 +90,14 @@ public class LaptopRESTService {
 	@JsonView(View.LaptopSummary.class)
 	public List<Laptop> getLaptopsByOwner(@QueryParam("first_name") String firstName) {
 		return lm.getLaptopsByOwner(firstName);
+	}
+
+	@GET
+	@Path("{laptopId}/owners")
+	@Produces(MediaType.APPLICATION_JSON)
+	@JsonView(View.LaptopOwners.class)
+	public List<Person> getLaptopOwners(@PathParam("laptopId") long id) {
+		return lm.getOwners(id);
 	}
 
 	@POST

@@ -411,6 +411,32 @@
 			"response": []
 		},
 		{
+			"name": "Lista właścicieli dla laptopa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/1/owners",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"1",
+						"owners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Usunięcie laptopa 1",
 			"request": {
 				"method": "DELETE",

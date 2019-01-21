@@ -1,6 +1,7 @@
 package ug.adamtrawinski.restejbjpa.service;
 
 import ug.adamtrawinski.restejbjpa.domain.Laptop;
+import ug.adamtrawinski.restejbjpa.domain.Person;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -112,6 +113,13 @@ public class LaptopManager {
 	public List<Laptop> getLaptopsByOwner(String firstName) {
 		Query q = em.createNamedQuery("laptop.findByOwnerFirstName");
 		q.setParameter("first_name", firstName);
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Person> getOwners(long id) {
+		Query q = em.createNamedQuery("laptop.getOwners");
+		q.setParameter("id", id);
 		return q.getResultList();
 	}
 
