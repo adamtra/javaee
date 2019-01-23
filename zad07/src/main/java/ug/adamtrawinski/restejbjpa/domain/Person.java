@@ -56,8 +56,17 @@ public class Person {
     }
 
     public void addLaptop(Laptop laptop) {
-        getLaptops().add(laptop);
-        laptop.getOwners().add(this);
+        boolean add = true;
+        for(Laptop l: laptops) {
+            if(l.equals(laptop)) {
+                add = false;
+                break;
+            }
+        }
+        if(add) {
+            getLaptops().add(laptop);
+            laptop.getOwners().add(this);
+        }
     }
 
     public void removeLaptop(Laptop laptop) {

@@ -70,6 +70,24 @@ public class PersonRESTService {
 	}
 
 
+	@PUT
+	@Path("/{personId}/laptop/{laptopId}")
+	public Response addOwner(@PathParam("personId") long id, @PathParam("laptopId") long laptopId) {
+		if(pm.addLaptop(id, laptopId)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
+	}
+
+	@DELETE
+	@Path("/{personId}/laptop/{laptopId}")
+	public Response removeOwner(@PathParam("personId") long id, @PathParam("laptopId") long laptopId) {
+		if(pm.removeLaptop(id, laptopId)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
+	}
+
 	@DELETE
 	public Response clearPersons() {
 		pm.deleteAllPersons();

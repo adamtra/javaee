@@ -4,6 +4,7 @@ import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import ug.adamtrawinski.restejbjpa.domain.Person;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -14,6 +15,9 @@ public class PersonManager {
 
     @PersistenceContext
     EntityManager em;
+
+    @Inject
+    LaptopManager lm;
 
     public void addPerson(Person person) {
         em.persist(person);
@@ -59,6 +63,28 @@ public class PersonManager {
         Query q = em.createNamedQuery("person.getLaptops");
         q.setParameter("id", id);
         return q.getResultList();
+    }
+
+    public boolean addLaptop(long personId, long laptopId) {
+        Laptop laptop = lm.getLaptop(laptopId);
+        Person person = getPerson(personId);
+        if(laptop == null || person == null) {
+            return false;
+        }
+        person.addLaptop(laptop);
+        em.persist(person);
+        return true;
+    }
+
+    public boolean removeLaptop(long personId, long laptopId) {
+        Laptop laptop = lm.getLaptop(laptopId);
+        Person person = getPerson(personId);
+        if(laptop == null || person == null) {
+            return false;
+        }
+        person.removeLaptop(laptop);
+        em.persist(person);
+        return true;
     }
 
     @SuppressWarnings("unchecked")

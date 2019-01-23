@@ -95,8 +95,17 @@ public class Laptop {
 
 
     public void addOwner(Person owner) {
-        getOwners().add(owner);
-        owner.getLaptops().add(this);
+        boolean add = true;
+        for (Person person: owners) {
+            if(person.equals(owner)) {
+                add = false;
+                break;
+            }
+        }
+        if(add) {
+            getOwners().add(owner);
+            owner.getLaptops().add(this);
+        }
     }
 
     public void removeOwner(Person owner) {

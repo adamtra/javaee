@@ -4,6 +4,7 @@ import ug.adamtrawinski.restejbjpa.domain.Laptop;
 import ug.adamtrawinski.restejbjpa.domain.Person;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -16,6 +17,9 @@ public class LaptopManager {
 
 	@PersistenceContext(unitName = "demoPU")
 	EntityManager em;
+
+	@Inject
+	PersonManager pm;
 
 	public void addLaptop(Laptop laptop) {
 		em.persist(laptop);
@@ -121,6 +125,28 @@ public class LaptopManager {
 		Query q = em.createNamedQuery("laptop.getOwners");
 		q.setParameter("id", id);
 		return q.getResultList();
+	}
+
+	public boolean addOwner(long laptopId, long personId) {
+		Laptop laptop = getLaptop(laptopId);
+		Person person = pm.getPerson(personId);
+		if(laptop == null || person == null) {
+			return false;
+		}
+		laptop.addOwner(person);
+		em.persist(laptop);
+		return true;
+	}
+
+	public boolean removeOwner(long laptopId, long personId) {
+		Laptop laptop = getLaptop(laptopId);
+		Person person = pm.getPerson(personId);
+		if(laptop == null || person == null) {
+			return false;
+		}
+		laptop.removeOwner(person);
+		em.persist(laptop);
+		return true;
 	}
 
 

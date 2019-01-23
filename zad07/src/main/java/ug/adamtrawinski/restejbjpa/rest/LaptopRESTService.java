@@ -110,9 +110,26 @@ public class LaptopRESTService {
 	@PUT
 	@Path("/{laptopId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateLaptop(@PathParam("laptopId") long id, Laptop laptop) {
 		if(lm.updateLaptop(laptop, id)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
+	}
+
+	@PUT
+	@Path("/{laptopId}/owner/{personId}")
+	public Response addOwner(@PathParam("laptopId") long id, @PathParam("personId") long personId) {
+		if(lm.addOwner(id, personId)) {
+			return Response.status(Response.Status.OK).build();
+		}
+		return Response.status(Response.Status.NOT_FOUND).build();
+	}
+
+	@DELETE
+	@Path("/{laptopId}/owner/{personId}")
+	public Response removeOwner(@PathParam("laptopId") long id, @PathParam("personId") long personId) {
+		if(lm.removeOwner(id, personId)) {
 			return Response.status(Response.Status.OK).build();
 		}
 		return Response.status(Response.Status.NOT_FOUND).build();

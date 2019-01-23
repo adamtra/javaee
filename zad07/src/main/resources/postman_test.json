@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "43c6dd0f-4846-493f-9712-52eb884994d8",
+		"_postman_id": "b8590643-a628-4c57-8502-740b1e4572db",
 		"name": "Projekt",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -684,6 +684,114 @@
 							"key": "name",
 							"value": "Jan"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Przypisanie osoby do laptopa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person/1/laptop/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person",
+						"1",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie osoby z laptopa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/person/1/laptop/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"person",
+						"1",
+						"laptop",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Przypisanie laptopa do osoby",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/1/owner/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"1",
+						"owner",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usunięcie osoby z laptopa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restejbjpa/api/laptop/1/owner/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restejbjpa",
+						"api",
+						"laptop",
+						"1",
+						"owner",
+						"1"
 					]
 				}
 			},
