@@ -34,10 +34,9 @@ public class PersonManager {
     }
 
     public void deletePerson(long id) {
-        Person person = getPerson(id);
-        if(person != null) {
-            em.remove(person);
-        }
+        Query q = em.createNamedQuery("person.delete");
+        q.setParameter("id", id);
+        q.executeUpdate();
     }
 
     @SuppressWarnings("unchecked")
